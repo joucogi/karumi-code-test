@@ -1,18 +1,19 @@
 import { shallowMount, Wrapper } from "@vue/test-utils";
 import Vue from "vue";
 
-import Home from "@/views/Home.vue";
 import LogoComponent from "@/components/LogoComponent.vue";
 
 let wrapper: Wrapper<Vue>;
 
 beforeEach(() => {
-  wrapper = shallowMount(Home);
+  wrapper = shallowMount(LogoComponent);
 });
 
-describe("Home View", () => {
-  it("contains LogoComponent", () => {
-    expect(wrapper.findComponent(LogoComponent).exists()).toBeTruthy();
+describe("Logo Component", () => {
+  it("renders image logo when passed", () => {
+    expect(wrapper.html()).toContain(
+      '<img alt="Karumi logo" src="../assets/logo.png">'
+    );
   });
 
   it("renders correctly", () => {
