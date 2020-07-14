@@ -1,11 +1,16 @@
 <template>
   <div class="home">
-    <img alt="Karumi logo" src="../assets/logo.png" />
+    <LogoComponent />
   </div>
 </template>
 
 <script>
+import LogoComponent from "../components/LogoComponent";
+
 export default {
-  name: "Home"
+  name: "Home",
+  components: {
+    LogoComponent
+  }
 };
 </script>

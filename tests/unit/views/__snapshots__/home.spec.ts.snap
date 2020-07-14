@@ -1,12 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home.vue renders correctly 1`] = `
+exports[`Home View renders correctly 1`] = `
 <div
   class="home"
 >
-  <img
-    alt="Karumi logo"
-    src="../assets/logo.png"
-  />
+  <logocomponent-stub />
 </div>
 `;
