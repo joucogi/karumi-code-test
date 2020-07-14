@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Install dependencies
+      - name: Install dependencies
+        run: yarn install
+
+      # Run lint
+      - name: Run Lint
+        run: yarn lint
+
+      # Run unit tests
+      - name: Run Unit tests
+        run: yarn test:unit
+
+      # Run e2e tests
+      - name: Run E2E tests
+        run: yarn test:e2e:ci
