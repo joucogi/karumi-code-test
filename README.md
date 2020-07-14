@@ -25,6 +25,11 @@ yarn build
 yarn test:unit
 ```
 
+### Update your Snapshots tests
+```
+yarn test:unit -u
+```
+
 ### Run your end-to-end tests
 ```
 yarn test:e2e
