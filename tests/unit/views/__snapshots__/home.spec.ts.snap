@@ -4,6 +4,24 @@ exports[`Home View renders correctly 1`] = `
 <div
   class="home"
 >
-  <logocomponent-stub />
+  <div
+    class="logo"
+  >
+    <logocomponent-stub />
+  </div>
+   
+  <div
+    class="content"
+  >
+    <emailinputcomponent-stub
+      class="mb-3"
+      placeholder="Username"
+    />
+     
+    <passwordinputcomponent-stub
+      class="mb-3"
+      placeholder="Password"
+    />
+  </div>
 </div>
 `;
