@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component renders correctly 1`] = `
+<b-form-input-stub
+  debounce="0"
+  placeholder="password"
+  type="email"
+  value=""
+/>
+`;
