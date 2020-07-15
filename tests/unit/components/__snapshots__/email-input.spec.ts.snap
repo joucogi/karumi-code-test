@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailInputComponent renders correctly 1`] = `
+<inputcomponent-stub
+  placeholder=""
+  type="email"
+/>
+`;

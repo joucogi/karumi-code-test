@@ -19,8 +19,12 @@ exports[`Home View renders correctly 1`] = `
     />
      
     <passwordinputcomponent-stub
-      class="mb-3"
+      class="mb-5"
       placeholder="Password"
+    />
+     
+    <buttoncomponent-stub
+      name="Login"
     />
   </div>
 </div>

@@ -5,7 +5,8 @@
     </div>
     <div class="content">
       <EmailInputComponent class="mb-3" placeholder="Username" />
-      <PasswordInputComponent class="mb-3" placeholder="Password" />
+      <PasswordInputComponent class="mb-5" placeholder="Password" />
+      <ButtonComponent name="Login" />
     </div>
   </div>
 </template>
@@ -14,13 +15,15 @@
 import LogoComponent from "@/components/LogoComponent";
 import EmailInputComponent from "@/components/EmailInputComponent";
 import PasswordInputComponent from "@/components/PasswordInputComponent";
+import ButtonComponent from "@/components/ButtonComponent";
 
 export default {
   name: "Home",
   components: {
     LogoComponent,
     EmailInputComponent,
-    PasswordInputComponent
+    PasswordInputComponent,
+    ButtonComponent
   }
 };
 </script>
