@@ -1,5 +1,8 @@
 # Karumi Test Proposal
 
+## Screenshots
+![Login View](/screenshots/LoginView.png?raw=true "Login View")
+
 ## Needed tools
 1. [Install yarn](https://classic.yarnpkg.com/en/docs/install)
 2. Clone this project: `git clone https://github.com/joucogi/karumi-code-test.git`
