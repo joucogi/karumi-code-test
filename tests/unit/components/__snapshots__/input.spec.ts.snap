@@ -3,8 +3,8 @@
 exports[`Input Component renders correctly 1`] = `
 <b-form-input-stub
   debounce="0"
-  placeholder="password"
-  type="email"
+  placeholder=""
+  type="text"
   value=""
 />
 `;

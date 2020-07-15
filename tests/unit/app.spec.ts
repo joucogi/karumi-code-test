@@ -3,6 +3,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import App from "@/App.vue";
+import { toMatchSnapshot } from "./helpers";
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,6 @@ beforeEach(() => {
 
 describe("App.vue", () => {
   it("renders correctly", () => {
-    expect(wrapper.element).toMatchSnapshot();
+    toMatchSnapshot(wrapper);
   });
 });

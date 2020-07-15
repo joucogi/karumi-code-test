@@ -2,6 +2,7 @@ import { shallowMount, Wrapper } from "@vue/test-utils";
 import Vue from "vue";
 
 import LogoComponent from "@/components/LogoComponent.vue";
+import { toMatchSnapshot } from "../helpers";
 
 let wrapper: Wrapper<Vue>;
 
@@ -17,6 +18,6 @@ describe("Logo Component", () => {
   });
 
   it("renders correctly", () => {
-    expect(wrapper.element).toMatchSnapshot();
+    toMatchSnapshot(wrapper);
   });
 });

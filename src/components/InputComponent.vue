@@ -6,12 +6,12 @@ export default {
   props: {
     type: {
       type: String,
-      default: "email",
+      default: "text",
       required: false
     },
     placeholder: {
       type: String,
-      default: "password",
+      default: "",
       required: false
     }
   }

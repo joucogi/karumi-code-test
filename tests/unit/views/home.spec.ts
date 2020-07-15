@@ -5,6 +5,8 @@ import Home from "@/views/Home.vue";
 import LogoComponent from "@/components/LogoComponent.vue";
 import EmailInputComponent from "@/components/EmailInputComponent.vue";
 import PasswordInputComponent from "@/components/PasswordInputComponent.vue";
+import ButtonComponent from "@/components/ButtonComponent.vue";
+import { toMatchSnapshot, componentExists } from "../helpers";
 
 let wrapper: Wrapper<Vue>;
 
@@ -13,19 +15,23 @@ beforeEach(() => {
 });
 
 describe("Home View", () => {
-  it("contains LogoComponent", () => {
-    expect(wrapper.findComponent(LogoComponent).exists()).toBeTruthy();
+  it("contains a LogoComponent", () => {
+    componentExists(wrapper, LogoComponent);
   });
 
-  it("contains EmailInputComponent", () => {
-    expect(wrapper.findComponent(EmailInputComponent).exists()).toBeTruthy();
+  it("contains an EmailInputComponent", () => {
+    componentExists(wrapper, EmailInputComponent);
   });
 
-  it("contains PasswordEmailInputComponent", () => {
-    expect(wrapper.findComponent(PasswordInputComponent).exists()).toBeTruthy();
+  it("contains a PasswordEmailInputComponent", () => {
+    componentExists(wrapper, PasswordInputComponent);
+  });
+
+  it("contains a ButtonComponent", () => {
+    componentExists(wrapper, ButtonComponent);
   });
 
   it("renders correctly", () => {
-    expect(wrapper.element).toMatchSnapshot();
+    toMatchSnapshot(wrapper);
   });
 });
