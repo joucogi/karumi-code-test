@@ -11,7 +11,7 @@ Application which users will be able to log in and they will keep persisted unti
 3. Move to the project folder: `cd karumi-code-test`
 
 ### Application run
-There are two ways to run the application:
+There are two ways to run the application in your own computer or server:
 
 1. Deploying `dist` folder
     > You can deploy `dist` folder to your web server
@@ -20,18 +20,23 @@ There are two ways to run the application:
     >
     > 1. Install [serve](https://www.npmjs.com/package/serve) (`yarn global add serve`)
     > 2. Run serve as a SPA `serve -l 8080 -s ./dist`
- 
+
 2. Run develop server
     > 1. Install dependencies `yarn install`
     > 2. Compiles and hot-reloads for development `yarn serve`
 
 At this point, you should be able to access to the next two views: 
-> - [HomeView](http://127.0.0.1:8080)
+> - [HomeView](http://127.0.0.1:8080) 
 > - [LoginView](http://127.0.0.1:8080/login)
+
+### Application run in Netlify
+If you prefer you can visit the application deployed in **[Netlify](https://www.netlify.com)**
+> - [HomeView](https://joucogi-karumi-create-home-view.netlify.app) 
+> - [LoginView](https://joucogi-karumi-create-home-view.netlify.app/login)
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.
-You can compile again with next command `yarn build`.
+You can compile again with the following command `yarn build`.
 
 ## Testing
 ### Testing the application
@@ -45,7 +50,7 @@ You can compile again with next command `yarn build`.
 > It will be only necessary when html or css is changed in Vue components.
 
 #### Lints and fixes files
-Next command is for find and fix problems in TypeScript code.
+The following command is for find and fix problems in TypeScript code.
 ```
 yarn lint
 ```
