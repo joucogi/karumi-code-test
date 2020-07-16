@@ -11,34 +11,41 @@ Application which users will be able to log in and they will keep persisted unti
 3. Move to the project folder: `cd karumi-code-test`
 
 ### Application run
-1. Install dependencies `yarn install`
-2. Compiles and hot-reloads for development `yarn serve`
-3. When the server is started you will be able to visit:
-- [HomeView](http://127.0.0.1:8080).
-- [LoginView](http://127.0.0.1:8080/login).
+There are two ways to run the application:
+
+1. Deploying `dist` folder
+    > You can deploy `dist` folder to your web server
+    >
+    > or
+    >
+    > 1. Install [serve](https://www.npmjs.com/package/serve) (`yarn global add serve`)
+    > 2. Run serve as a SPA `serve -l 8080 -s ./dist`
+ 
+2. Run develop server
+    > 1. Install dependencies `yarn install`
+    > 2. Compiles and hot-reloads for development `yarn serve`
+
+At this point, you should be able to access to the next two views: 
+> - [HomeView](http://127.0.0.1:8080)
+> - [LoginView](http://127.0.0.1:8080/login)
 
 ### Deploy to production
-1. Compiles and minifies for production with `yarn build` to generate a `/dist` folder
-2. `/dist` folder will be prepared to be run with any http server
+The application is all compiled and ready to be deployed into `dist` folder.
+You can compile again with next command `yarn build`.
 
-### Run tests
-#### Run your unit and snapshot tests
-```
-yarn test:unit
-```
+## Testing
+### Testing the application
 
-#### Update your Snapshots tests
-```
-yarn test:unit -u
-```
-When there are updates in views it is necessary to run this command to generate all snapshots.
-
-#### Run your end-to-end tests
-```
-yarn test:e2e
-```
+1. Unit and Snapshot tests
+> These tests will allow us to verify that the different views and components are displayed and working correctly.
+>
+> Command for run unit tests: `yarn test:unit`
+>
+> if it is necessary to regenerate all the snapshots you can do with the following command `yarn test:unit -u`.
+> It will be only necessary when html or css is changed in Vue components.
 
 #### Lints and fixes files
+Next command is for find and fix problems in TypeScript code.
 ```
 yarn lint
 ```
