@@ -30,6 +30,7 @@ export default {
 <style scoped>
 .login {
   width: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -48,6 +49,5 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
-  padding: 50px;
 }
 </style>
