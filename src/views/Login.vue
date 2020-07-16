@@ -1,35 +1,40 @@
 <template>
-  <div class="home">
+  <div class="login">
     <div class="logo">
       <LogoComponent />
     </div>
     <div class="content">
-      <h2 class="mb-5">Welcome to your homepage Joel</h2>
-      <ButtonComponent name="Log out" />
+      <EmailInputComponent class="mb-3" placeholder="Username" />
+      <PasswordInputComponent class="mb-5" placeholder="Password" />
+      <ButtonComponent name="Login" />
     </div>
   </div>
 </template>
 
 <script>
 import LogoComponent from "@/components/LogoComponent";
+import EmailInputComponent from "@/components/EmailInputComponent";
+import PasswordInputComponent from "@/components/PasswordInputComponent";
 import ButtonComponent from "@/components/ButtonComponent";
 
 export default {
-  name: "Home",
+  name: "Login",
   components: {
     LogoComponent,
+    EmailInputComponent,
+    PasswordInputComponent,
     ButtonComponent
   }
 };
 </script>
 <style scoped>
-.home {
+.login {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.home > div {
+.login > div {
   flex: 1;
 }
 
