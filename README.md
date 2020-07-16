@@ -31,8 +31,8 @@ At this point, you should be able to access to the next two views:
 
 ### Application run in Netlify
 If you prefer you can visit the application deployed in **[Netlify](https://www.netlify.com)**
-> - [HomeView](https://joucogi-karumi-create-home-view.netlify.app) 
-> - [LoginView](https://joucogi-karumi-create-home-view.netlify.app/login)
+> - [HomeView](https://joucogi-karumi-improve-views-styles.netlify.app) 
+> - [LoginView](https://joucogi-karumi-improve-views-styles.netlify.app/login)
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.
