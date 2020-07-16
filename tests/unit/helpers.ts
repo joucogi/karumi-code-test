@@ -1,14 +1,12 @@
-import { Wrapper, VueClass } from "@vue/test-utils";
+import { Wrapper } from "@vue/test-utils";
 import Vue from "vue";
 
 export const toMatchSnapshot = (wrapper: Wrapper<Vue>) => {
   expect(wrapper.element).toMatchSnapshot();
 };
 
-export const componentExists = (
-  wrapper: Wrapper<Vue>,
-  component: VueClass<Vue>
-) => {
+/* eslint-disable  @typescript-eslint/no-explicit-any */
+export const componentExists = (wrapper: Wrapper<Vue>, component: any) => {
   expect(wrapper.findComponent(component).exists()).toBeTruthy();
 };
 
