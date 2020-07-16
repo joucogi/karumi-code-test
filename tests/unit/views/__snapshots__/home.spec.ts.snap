@@ -13,18 +13,14 @@ exports[`Home View renders correctly 1`] = `
   <div
     class="content"
   >
-    <emailinputcomponent-stub
-      class="mb-3"
-      placeholder="Username"
-    />
-     
-    <passwordinputcomponent-stub
+    <h2
       class="mb-5"
-      placeholder="Password"
-    />
+    >
+      Welcome to your homepage Joel
+    </h2>
      
     <buttoncomponent-stub
-      name="Login"
+      name="Log out"
     />
   </div>
 </div>
