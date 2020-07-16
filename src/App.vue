@@ -16,20 +16,10 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  align-content: stretch;
   height: 100%;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#app > div {
+  margin: 0 auto;
 }
 </style>

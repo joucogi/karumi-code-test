@@ -25,6 +25,7 @@ export default {
 <style scoped>
 .home {
   width: 100%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
 }
