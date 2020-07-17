@@ -5,7 +5,7 @@
     </div>
     <div class="content">
       <h2 class="mb-5">Welcome to your homepage Joel</h2>
-      <ButtonComponent name="Log out" />
+      <ButtonComponent id="btnLogout" name="Log out" @click="goToLogin" />
     </div>
   </div>
 </template>
@@ -19,6 +19,11 @@ export default {
   components: {
     LogoComponent,
     ButtonComponent
+  },
+  methods: {
+    goToLogin: function() {
+      this.$router.push({ name: "Login" });
+    }
   }
 };
 </script>

@@ -23,3 +23,15 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+// Add command to visit home
+Cypress.Commands.add("visitHome", () => cy.visit("/"));
+
+// Add command to visit login
+Cypress.Commands.add("visitLogin", () => cy.visit("/login"));
+
+// Add command to click an element
+Cypress.Commands.add("clickButton", btnId => cy.get(`button#${btnId}`).click());
+
+// Should be on an Url
+Cypress.Commands.add("shouldBeOnUrl", url => cy.url().should("include", url));

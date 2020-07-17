@@ -1,6 +1,8 @@
 # Karumi Test Proposal
 Application which users will be able to log in and they will keep persisted until logout button was clicked.
 
+> At this time, the application only allows you to navigate between the different views by pressing the buttons.
+
 ## Screenshots
 ![Login View](/screenshots/LoginView.png?raw=true "Login View") ![Home View](/screenshots/HomeView.png?raw=true "Home View")
 
@@ -31,8 +33,8 @@ At this point, you should be able to access to the next two views:
 
 ### Application run in Netlify
 If you prefer you can visit the application deployed in **[Netlify](https://www.netlify.com)**
-> - [HomeView](https://joucogi-karumi-improve-views-styles.netlify.app) 
-> - [LoginView](https://joucogi-karumi-improve-views-styles.netlify.app/login)
+> - [HomeView](https://joucogi-karumi-buttons-redirect-to-another-view.netlify.app) 
+> - [LoginView](https://joucogi-karumi-buttons-redirect-to-another-view.netlify.app/login)
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.

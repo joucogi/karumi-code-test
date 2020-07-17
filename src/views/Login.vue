@@ -4,9 +4,13 @@
       <LogoComponent />
     </div>
     <div class="content">
-      <EmailInputComponent class="mb-3" placeholder="Username" />
-      <PasswordInputComponent class="mb-5" placeholder="Password" />
-      <ButtonComponent name="Login" />
+      <EmailInputComponent id="username" class="mb-3" placeholder="Username" />
+      <PasswordInputComponent
+        id="password"
+        class="mb-5"
+        placeholder="Password"
+      />
+      <ButtonComponent id="btnLogin" name="Login" @click="goToHome" />
     </div>
   </div>
 </template>
@@ -24,6 +28,11 @@ export default {
     EmailInputComponent,
     PasswordInputComponent,
     ButtonComponent
+  },
+  methods: {
+    goToHome: function() {
+      this.$router.push({ name: "Home" });
+    }
   }
 };
 </script>
