@@ -7,6 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e --headless",
+    "test:e2e:ui": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -39,7 +40,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "jest-serializer-vue": "^2.0.2",
     "prettier": "^1.19.1",
-    "typescript": "~3.9.3",
+    "typescript": "^3.9.7",
     "vue-template-compiler": "^2.6.11"
   }
 }

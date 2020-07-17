@@ -1,11 +1,16 @@
 <template>
-  <InputComponent type="password" :placeholder="placeholder" />
+  <InputComponent :id="id" type="password" :placeholder="placeholder" />
 </template>
 <script>
 import InputComponent from "./InputComponent";
 export default {
   components: { InputComponent },
   props: {
+    id: {
+      type: String,
+      default: "",
+      required: false
+    },
     placeholder: {
       type: String,
       default: "",

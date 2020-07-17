@@ -12,6 +12,10 @@ const routes: Array<RouteConfig> = [
     path: "/login",
     name: "Login",
     component: Login
+  },
+  {
+    path: "*",
+    component: Home
   }
 ];
 

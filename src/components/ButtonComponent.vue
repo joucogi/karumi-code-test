@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-button size="lg" variant="primary">
+    <b-button :id="id" size="lg" variant="primary" @click="$emit('click')">
       <span> {{ name }} </span>
     </b-button>
   </div>
@@ -8,6 +8,11 @@
 <script>
 export default {
   props: {
+    id: {
+      type: String,
+      default: "btnId",
+      required: false
+    },
     name: {
       type: String,
       default: "Send",

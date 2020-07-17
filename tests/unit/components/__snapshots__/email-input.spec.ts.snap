@@ -2,6 +2,7 @@
 
 exports[`EmailInputComponent renders correctly 1`] = `
 <inputcomponent-stub
+  id=""
   placeholder=""
   type="email"
 />

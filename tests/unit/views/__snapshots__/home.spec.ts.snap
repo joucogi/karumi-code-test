@@ -20,6 +20,7 @@ exports[`Home View renders correctly 1`] = `
     </h2>
      
     <buttoncomponent-stub
+      id="btnLogout"
       name="Log out"
     />
   </div>

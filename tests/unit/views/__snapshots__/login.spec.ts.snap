@@ -15,15 +15,18 @@ exports[`Login View renders correctly 1`] = `
   >
     <emailinputcomponent-stub
       class="mb-3"
+      id="username"
       placeholder="Username"
     />
      
     <passwordinputcomponent-stub
       class="mb-5"
+      id="password"
       placeholder="Password"
     />
      
     <buttoncomponent-stub
+      id="btnLogin"
       name="Login"
     />
   </div>
