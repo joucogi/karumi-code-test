@@ -8,6 +8,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import LoginUser from "@/services/login-user";
+
 Vue.config.productionTip = false;
 
 // Install BootstrapVue
@@ -16,5 +18,8 @@ Vue.use(BootstrapVue);
 new Vue({
   router,
   store,
+  provide: {
+    login: new LoginUser()
+  },
   render: h => h(App)
 }).$mount("#app");
