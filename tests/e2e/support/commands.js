@@ -34,4 +34,16 @@ Cypress.Commands.add("visitLogin", () => cy.visit("/login"));
 Cypress.Commands.add("clickButton", btnId => cy.get(`button#${btnId}`).click());
 
 // Should be on an Url
-Cypress.Commands.add("shouldBeOnUrl", url => cy.url().should("include", url));
+Cypress.Commands.add("shouldBeOnUrl", url =>
+  cy.url().should("match", new RegExp(`${url}$`))
+);
+
+// Should be visible
+Cypress.Commands.add("shouldBeVisible", element =>
+  cy.get(element).should("visible")
+);
+
+// Should not be visible
+Cypress.Commands.add("shouldNotBeVisible", element =>
+  cy.get(element).should("not.visible")
+);

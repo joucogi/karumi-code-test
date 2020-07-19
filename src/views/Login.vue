@@ -4,13 +4,25 @@
       <LogoComponent />
     </div>
     <div class="content">
-      <EmailInputComponent id="username" class="mb-3" placeholder="Username" />
+      <EmailInputComponent
+        v-model="username"
+        id="username"
+        class="mb-3"
+        placeholder="Username"
+        @input="setUsername"
+      />
+
       <PasswordInputComponent
+        v-model="password"
         id="password"
         class="mb-5"
         placeholder="Password"
+        @input="setPassowrd"
       />
-      <ButtonComponent id="btnLogin" name="Login" @click="goToHome" />
+      <span class="mb-5 error" :class="{ hidden: !showError }">{{
+        error
+      }}</span>
+      <ButtonComponent id="btnLogin" name="Login" @click="loginUser()" />
     </div>
   </div>
 </template>
@@ -23,6 +35,15 @@ import ButtonComponent from "@/components/ButtonComponent";
 
 export default {
   name: "Login",
+  inject: ["login"],
+  data() {
+    return {
+      username: "",
+      password: "",
+      showError: false,
+      error: "The username or password you’ve entered is incorrect"
+    };
+  },
   components: {
     LogoComponent,
     EmailInputComponent,
@@ -30,7 +51,19 @@ export default {
     ButtonComponent
   },
   methods: {
-    goToHome: function() {
+    setUsername: function(payload) {
+      this.username = payload;
+    },
+    setPassowrd: function(payload) {
+      this.password = payload;
+    },
+    loginUser: function() {
+      this.showError = false;
+      if (!this.login.validate(this.username, this.password)) {
+        this.showError = true;
+        return;
+      }
+
       this.$router.push({ name: "Home" });
     }
   }
@@ -58,5 +91,14 @@ export default {
 .content {
   display: flex;
   flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
 }
 </style>

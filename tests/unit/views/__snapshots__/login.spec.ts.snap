@@ -17,13 +17,21 @@ exports[`Login View renders correctly 1`] = `
       class="mb-3"
       id="username"
       placeholder="Username"
+      value=""
     />
      
     <passwordinputcomponent-stub
       class="mb-5"
       id="password"
       placeholder="Password"
+      value=""
     />
+     
+    <span
+      class="mb-5 error hidden"
+    >
+      The username or password you’ve entered is incorrect
+    </span>
      
     <buttoncomponent-stub
       id="btnLogin"
