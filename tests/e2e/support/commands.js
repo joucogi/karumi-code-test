@@ -43,6 +43,12 @@ Cypress.Commands.add("shouldBeVisible", element =>
   cy.get(element).should("visible")
 );
 
+// Should be visible
+Cypress.Commands.add("shouldBeVisibleAndContain", (element, text) =>
+  cy.shouldBeVisible(element)
+    .get(element).contains(text)
+);
+
 // Should not be visible
 Cypress.Commands.add("shouldNotBeVisible", element =>
   cy.get(element).should("not.visible")

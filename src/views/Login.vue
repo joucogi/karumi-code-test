@@ -35,13 +35,13 @@ import ButtonComponent from "@/components/ButtonComponent";
 
 export default {
   name: "Login",
-  inject: ["login"],
+  inject: ["login", "validator"],
   data() {
     return {
       username: "",
       password: "",
       showError: false,
-      error: "The username or password you’ve entered is incorrect"
+      error: ""
     };
   },
   components: {
@@ -59,12 +59,31 @@ export default {
     },
     loginUser: function() {
       this.showError = false;
-      if (!this.login.validate(this.username, this.password)) {
+      if (
+              !this.validateEmail() ||
+              !this.validateLogin()
+      ) {
         this.showError = true;
         return;
       }
 
       this.$router.push({ name: "Home" });
+    },
+    validateEmail: function() {
+      if (!this.validator.emailIsValid(this.username)) {
+        this.error = "The username is not an email";
+        return false;
+      }
+
+      return true;
+    },
+    validateLogin: function() {
+      if (!this.login.validate(this.username, this.password)) {
+        this.error = "The username or password you’ve entered is incorrect";
+        return false
+      }
+
+      return true;
     }
   }
 };

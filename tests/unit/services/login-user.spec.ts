@@ -11,7 +11,7 @@ describe("For LoginUser Service", () => {
   });
 
   it("validation is ok when a valid user/password is passed", () => {
-    const user = new User("Joel", "joel", "123456");
+    const user = new User("Joel", "joel.coll@gmail.com", "123456");
     expect(login.validate(user.username, user.password)).toBeTruthy();
     expect(store.state.user).toEqual(user);
   });
