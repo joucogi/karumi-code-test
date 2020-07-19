@@ -9,20 +9,27 @@ import ButtonComponent from "@/components/ButtonComponent.vue";
 import { toMatchSnapshot, componentExists } from "../helpers";
 
 import LoginUserMock from "../mocks/login-user-mock";
+import ValidatorMock from "../mocks/validator-mock";
 
 let wrapper: Wrapper<Vue>;
 const login = new LoginUserMock();
-
-beforeEach(() => {
-  wrapper = shallowMount(Login, {
-    stubs: ["b-form-input", "b-button"],
-    provide: {
-      login
-    }
-  });
-});
+const validatorImplementation: Record<string, jest.Mock> = {
+  emailIsValid: jest.fn()
+};
+const validator = new (ValidatorMock(validatorImplementation))();
 
 describe("Login View", () => {
+
+  beforeEach(() => {
+    wrapper = shallowMount(Login, {
+      stubs: ["b-form-input", "b-button"],
+      provide: {
+        login,
+        validator
+      }
+    });
+  });
+
   it("contains a LogoComponent", () => {
     componentExists(wrapper, LogoComponent);
   });
@@ -39,20 +46,61 @@ describe("Login View", () => {
     componentExists(wrapper, ButtonComponent);
   });
 
-  it("contains an span tag with error message", () => {
+  it("contains an empty span tag with error message", () => {
     const span = wrapper.find("span");
-    expect(span.text()).toContain(
-      "The username or password you’ve entered is incorrect"
-    );
+    expect(span.text()).toContain("");
   });
 
-  it("when button is clicked validate method from login service is called", async () => {
+  it("when button is clicked validate method from login service is not called when username is empty", async () => {
     const button = wrapper.find("#btnLogin");
     await button.vm.$emit("click");
-    expect(login.validate.mock.calls.length).toBe(1);
+    expect(login.validate.mock.calls.length).toBe(0);
   });
 
   it("renders correctly", () => {
     toMatchSnapshot(wrapper);
+  });
+});
+
+describe("Login View and username is not valid", () => {
+
+  beforeEach(() => {
+    wrapper = shallowMount(Login, {
+      stubs: ["b-form-input", "b-button"],
+      provide: {
+        login,
+        validator
+      }
+    });
+  });
+
+  it("when button is clicked, validate method from login service is not called", async () => {
+    const button = wrapper.find("#btnLogin");
+    await button.vm.$emit("click");
+    expect(login.validate.mock.calls.length).toBe(0);
+  });
+});
+
+describe("Login View and username is valid", () => {
+
+  beforeEach(() => {
+    const validatorImplementation: Record<string, jest.Mock> = {
+      emailIsValid: jest.fn(() => true)
+    };
+    const validator = new (ValidatorMock(validatorImplementation))();
+
+    wrapper = shallowMount(Login, {
+      stubs: ["b-form-input", "b-button"],
+      provide: {
+        login,
+        validator
+      }
+    });
+  });
+
+  it("when button is clicked, validate method from login service is not called", async () => {
+    const button = wrapper.find("#btnLogin");
+    await button.vm.$emit("click");
+    expect(login.validate.mock.calls.length).toBe(1);
   });
 });

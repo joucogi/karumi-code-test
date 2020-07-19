@@ -8,7 +8,7 @@ Application which users will be able to log in and they will keep persisted unti
 >Valid credentials:
 >
 > ```
-> Username: joel
+> Username: joel.coll@gmail.com
 > Password: 123456
 > ```
 
