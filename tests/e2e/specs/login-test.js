@@ -1,5 +1,5 @@
-describe("E2E testing", () => {
-  it("Visits Login url", () => {
+describe("When user visits Login url", () => {
+  it("should be showing some components", () => {
     cy.visitLogin()
       .get("input#username")
       .get("input#password")
@@ -7,7 +7,7 @@ describe("E2E testing", () => {
       .get("span.error");
   });
 
-  it("Visits Login url and stay at Login url and show error message when inputs are empty", () => {
+  it("Should be showing error message if user click the button and inputs are empty", () => {
     cy.visitLogin()
       .shouldNotBeVisible("span.error")
       .clickButton("btnLogin")
@@ -15,7 +15,7 @@ describe("E2E testing", () => {
       .shouldBeVisible("span.error");
   });
 
-  it("Visits Login url and stay at Login url and show error message when login validation fails", () => {
+  it("Should be showing error message if user click the button and credentials are wrong", () => {
     cy.visitLogin()
       .shouldNotBeVisible("span.error")
       .get("input#username")
@@ -27,7 +27,7 @@ describe("E2E testing", () => {
       .shouldBeVisible("span.error");
   });
 
-  it("Visits Login url and go to Home url showing the correct name when login validation success", () => {
+  it("Should be redirected to home page if user click the button and credentials are valid", () => {
     cy.visitLogin()
       .shouldNotBeVisible("span.error")
       .get("input#username")

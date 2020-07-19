@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home View renders correctly when user is logged in 1`] = `
+exports[`Home View renders correctly 1`] = `
 <div
   class="home"
 >
@@ -17,33 +17,6 @@ exports[`Home View renders correctly when user is logged in 1`] = `
       class="mb-5"
     >
       Welcome to your homepage Joel
-    </h2>
-     
-    <buttoncomponent-stub
-      id="btnLogout"
-      name="Log out"
-    />
-  </div>
-</div>
-`;
-
-exports[`Home View renders correctly when user is not logged in 1`] = `
-<div
-  class="home"
->
-  <div
-    class="logo"
-  >
-    <logocomponent-stub />
-  </div>
-   
-  <div
-    class="content"
-  >
-    <h2
-      class="mb-5"
-    >
-      Welcome to your homepage Unknown
     </h2>
      
     <buttoncomponent-stub

@@ -5,17 +5,16 @@
     </div>
     <div class="content">
       <h2 class="mb-5">Welcome to your homepage {{ name }}</h2>
-      <ButtonComponent id="btnLogout" name="Log out" @click="goToLogin" />
+      <ButtonComponent id="btnLogout" name="Log out" @click="logoutAndGoToLogin" />
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters, mapMutations } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import LogoComponent from "@/components/LogoComponent";
 import ButtonComponent from "@/components/ButtonComponent";
 import { LOGOUT } from "@/store/mutations";
-import { USER_IS_LOGGED } from "@/store/getters";
 
 export default {
   name: "Home",
@@ -25,18 +24,15 @@ export default {
   },
   computed: {
     ...mapState(["user"]),
-    ...mapGetters({
-      userIsLoggedIn: USER_IS_LOGGED
-    }),
     name: function() {
-      return this.userIsLoggedIn ? this.user.name : "Unknown";
+      return this.user.name;
     }
   },
   methods: {
     ...mapMutations({
       logout: LOGOUT
     }),
-    goToLogin: function() {
+    logoutAndGoToLogin: function() {
       this.logout();
       this.$router.push({ name: "Login" });
     }

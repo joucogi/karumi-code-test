@@ -1,7 +1,16 @@
 # Karumi Test Proposal
 Application which users will be able to log in and they will keep persisted until logout button was clicked.
 
-> At this time, the application only allows you to navigate between the different views by pressing the buttons.
+> At this time, users will be able to log in but they will not keep their session when the page is reloaded.
+> 
+> Home view is just accessible when user is logged, if it is not logged it will be redirect to login view.
+>
+>Valid credentials:
+>
+> ```
+> Username: joel
+> Password: 123456
+> ```
 
 ## Screenshots
 ![Login View](/screenshots/LoginView.png?raw=true "Login View") ![Home View](/screenshots/HomeView.png?raw=true "Home View")
@@ -28,13 +37,13 @@ There are two ways to run the application in your own computer or server:
     > 2. Compiles and hot-reloads for development `yarn serve`
 
 At this point, you should be able to access to the next two views: 
-> - [HomeView](http://127.0.0.1:8080) 
+> - [HomeView](http://127.0.0.1:8080)
 > - [LoginView](http://127.0.0.1:8080/login)
 
 ### Application run in Netlify
 If you prefer you can visit the application deployed in **[Netlify](https://www.netlify.com)**
-> - [HomeView](https://joucogi-karumi-buttons-redirect-to-another-view.netlify.app) 
-> - [LoginView](https://joucogi-karumi-buttons-redirect-to-another-view.netlify.app/login)
+> - [HomeView](https://joucogi-karumi-login-implementation.netlify.app) 
+> - [LoginView](https://joucogi-karumi-login-implementation.netlify.app/login)
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.
@@ -52,7 +61,4 @@ You can compile again with the following command `yarn build`.
 > It will be only necessary when html or css is changed in Vue components.
 
 #### Lints and fixes files
-The following command is for find and fix problems in TypeScript code.
-```
-yarn lint
-```
+The following command (`yarn lint`) is for find and fix problems in TypeScript code.
