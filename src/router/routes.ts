@@ -6,7 +6,8 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: Home,
+    meta: { requiresAuth: true }
   },
   {
     path: "/login",
@@ -15,7 +16,7 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "*",
-    component: Home
+    component: Login
   }
 ];
 
