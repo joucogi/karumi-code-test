@@ -19,7 +19,7 @@ new Vue({
   router,
   store,
   provide: {
-    login: new LoginUser()
+    login: new LoginUser(store)
   },
   render: h => h(App)
 }).$mount("#app");
