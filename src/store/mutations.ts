@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-import State from "@/store/State";
+import State from "@/store/state";
 import User from "@/models/user";
 
 export const LOGIN = "login";
