@@ -30,7 +30,9 @@ exports[`Login View renders correctly 1`] = `
     <span
       class="mb-5 error hidden"
     >
+      
       The username or password you’ve entered is incorrect
+    
     </span>
      
     <buttoncomponent-stub

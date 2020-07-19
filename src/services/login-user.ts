@@ -1,8 +1,23 @@
+import { Store } from "vuex";
+
+import User from "@/models/user";
+import { LOGIN } from "@/store/mutations";
+import State from "@/store/state";
+
 export default class LoginUser {
-  private username = "joucogi";
-  private password = "123456";
+  readonly user: User = new User("Joel", "joel", "123456");
+  readonly $store: Store<State>;
+
+  constructor(store: Store<State>) {
+    this.$store = store;
+  }
 
   validate(username: string, password: string): boolean {
-    return username === this.username && password === this.password;
+    if (username !== this.user.username || password !== this.user.password) {
+      return false;
+    }
+
+    this.$store.commit(LOGIN, this.user);
+    return true;
   }
 }

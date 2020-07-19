@@ -1,16 +1,4 @@
 describe("E2E testing", () => {
-  it("Visits Home url", () => {
-    cy.visitHome()
-      .contains("h2", "Welcome to your homepage Joel")
-      .get("button#btnLogout");
-  });
-
-  it("Visits Home url and go to Login url when logout button is clicked", () => {
-    cy.visitHome()
-      .clickButton("btnLogout")
-      .shouldBeOnUrl("/login");
-  });
-
   it("Visits Login url", () => {
     cy.visitLogin()
       .get("input#username")
@@ -39,14 +27,16 @@ describe("E2E testing", () => {
       .shouldBeVisible("span.error");
   });
 
-  it("Visits Login url and go to Home url when login validation success", () => {
+  it("Visits Login url and go to Home url showing the correct name when login validation success", () => {
     cy.visitLogin()
       .shouldNotBeVisible("span.error")
       .get("input#username")
-      .type("joucogi")
+      .type("joel")
       .get("input#password")
       .type("123456")
       .clickButton("btnLogin")
-      .shouldBeOnUrl("/");
+      .shouldBeOnUrl("/")
+      .get("h2")
+      .contains("Welcome to your homepage Joel");
   });
 });

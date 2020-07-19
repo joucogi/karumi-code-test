@@ -17,11 +17,11 @@
         id="password"
         class="mb-5"
         placeholder="Password"
-        @input="setPassowrd"
+        @input="setPassword"
       />
-      <span class="mb-5 error" :class="{ hidden: !showError }">{{
-        error
-      }}</span>
+      <span class="mb-5 error" :class="{ hidden: !showError }">
+        {{ error }}
+      </span>
       <ButtonComponent id="btnLogin" name="Login" @click="loginUser()" />
     </div>
   </div>
@@ -54,7 +54,7 @@ export default {
     setUsername: function(payload) {
       this.username = payload;
     },
-    setPassowrd: function(payload) {
+    setPassword: function(payload) {
       this.password = payload;
     },
     loginUser: function() {
