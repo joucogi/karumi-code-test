@@ -29,4 +29,15 @@ export default class FakeLoginApi implements LoginApi {
       token
     );
   }
+
+  async getUserByToken(token: string): Promise<User> {
+    const json = await this.server.getUser(token);
+    const userInfo = JSON.parse(json);
+    return new User(
+      userInfo._id,
+      userInfo._name,
+      userInfo._username,
+      userInfo._password
+    );
+  }
 }

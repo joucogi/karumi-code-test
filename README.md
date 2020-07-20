@@ -1,14 +1,6 @@
 # Karumi Test Proposal
 Application which users will be able to log in and they will keep persisted until logout button was clicked.
 
-> At this time, users will be able to log in but they will not keep their session when the page is reloaded.
-> 
-> Home view is just accessible when user is logged, if it is not logged it will be redirect to login view.
->
-> The credentials are validated by FakeLoginApi which get the valid users list from ./data/users.ts file.
-> 
-> FakeLoginApi implements the LoginApi interface and when the API is ready we will only have to do a new implementation. 
-
 ## Screenshots
 ![Login View](/screenshots/LoginView.png?raw=true "Login View") ![Home View](/screenshots/HomeView.png?raw=true "Home View")
 
@@ -39,8 +31,8 @@ At this point, you should be able to access to the next two views:
 
 ### Application run in Netlify
 If you prefer you can visit the application deployed in **[Netlify](https://www.netlify.com)**
-> - [HomeView](https://joucogi-karumi-login-with-api.netlify.app) 
-> - [LoginView](https://joucogi-karumi-login-with-api.netlify.app/login)
+> - [HomeView](https://joucogi-karumi-token-persist.netlify.app) 
+> - [LoginView](https://joucogi-karumi-token-persist.netlify.app/login)
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.
