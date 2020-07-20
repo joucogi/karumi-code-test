@@ -1,23 +1,26 @@
 import { Store } from "vuex";
 
-import User from "@/models/user";
 import { LOGIN } from "@/store/mutations";
 import State from "@/store/state";
+import LoginApi from "@/contracts/login-api";
 
 export default class LoginUser {
-  readonly user: User = new User("Joel", "joel.coll@gmail.com", "123456");
   readonly $store: Store<State>;
+  readonly $api: LoginApi;
 
-  constructor(store: Store<State>) {
+  constructor(store: Store<State>, api: LoginApi) {
     this.$store = store;
+    this.$api = api;
   }
 
-  validate(username: string, password: string): boolean {
-    if (username !== this.user.username || password !== this.user.password) {
+  async validate(username: string, password: string): Promise<boolean> {
+    const user = await this.$api.getUser(username, password);
+
+    if (user === undefined) {
       return false;
     }
 
-    this.$store.commit(LOGIN, this.user);
+    this.$store.commit(LOGIN, user);
     return true;
   }
 }

@@ -19,7 +19,6 @@ const validatorImplementation: Record<string, jest.Mock> = {
 const validator = new (ValidatorMock(validatorImplementation))();
 
 describe("Login View", () => {
-
   beforeEach(() => {
     wrapper = shallowMount(Login, {
       stubs: ["b-form-input", "b-button"],
@@ -63,7 +62,6 @@ describe("Login View", () => {
 });
 
 describe("Login View and username is not valid", () => {
-
   beforeEach(() => {
     wrapper = shallowMount(Login, {
       stubs: ["b-form-input", "b-button"],
@@ -82,7 +80,6 @@ describe("Login View and username is not valid", () => {
 });
 
 describe("Login View and username is valid", () => {
-
   beforeEach(() => {
     const validatorImplementation: Record<string, jest.Mock> = {
       emailIsValid: jest.fn(() => true)

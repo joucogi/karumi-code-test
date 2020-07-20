@@ -5,7 +5,11 @@
     </div>
     <div class="content">
       <h2 class="mb-5">Welcome to your homepage {{ name }}</h2>
-      <ButtonComponent id="btnLogout" name="Log out" @click="logoutAndGoToLogin" />
+      <ButtonComponent
+        id="btnLogout"
+        name="Log out"
+        @click="logoutAndGoToLogin"
+      />
     </div>
   </div>
 </template>

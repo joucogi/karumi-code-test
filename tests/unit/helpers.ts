@@ -39,6 +39,6 @@ export const createEmptyStore = createStore;
 
 export const createStoreWithUser = () => {
   const state = new State();
-  state.user = new User("Joel", "joel", "1234");
+  state.user = new User(1, "Joel", "joel", "1234");
   return createStore(state);
 };
