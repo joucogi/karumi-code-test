@@ -8,6 +8,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import FakeLoginApi from "@/adapters/fake-login-api";
+
 import LoginUser from "@/services/login-user";
 import Validator from "@/services/validator";
 
@@ -20,7 +22,7 @@ new Vue({
   router,
   store,
   provide: {
-    login: new LoginUser(store),
+    login: new LoginUser(store, new FakeLoginApi()),
     validator: new Validator()
   },
   render: h => h(App)

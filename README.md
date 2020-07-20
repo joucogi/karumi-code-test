@@ -5,12 +5,9 @@ Application which users will be able to log in and they will keep persisted unti
 > 
 > Home view is just accessible when user is logged, if it is not logged it will be redirect to login view.
 >
->Valid credentials:
->
-> ```
-> Username: joel.coll@gmail.com
-> Password: 123456
-> ```
+> The credentials are validated by FakeLoginApi which get the valid users list from ./data/users.ts file.
+> 
+> FakeLoginApi implements the LoginApi interface and when the API is ready we will only have to do a new implementation. 
 
 ## Screenshots
 ![Login View](/screenshots/LoginView.png?raw=true "Login View") ![Home View](/screenshots/HomeView.png?raw=true "Home View")
@@ -42,8 +39,8 @@ At this point, you should be able to access to the next two views:
 
 ### Application run in Netlify
 If you prefer you can visit the application deployed in **[Netlify](https://www.netlify.com)**
-> - [HomeView](https://joucogi-karumi-login-implementation.netlify.app) 
-> - [LoginView](https://joucogi-karumi-login-implementation.netlify.app/login)
+> - [HomeView](https://joucogi-karumi-login-with-api.netlify.app) 
+> - [LoginView](https://joucogi-karumi-login-with-api.netlify.app/login)
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.
@@ -53,12 +50,19 @@ You can compile again with the following command `yarn build`.
 ### Testing the application
 
 1. Unit and Snapshot tests
-> These tests will allow us to verify that the different views and components are displayed and working correctly.
->
-> Command for run unit tests: `yarn test:unit`
->
-> if it is necessary to regenerate all the snapshots you can do with the following command `yarn test:unit -u`.
-> It will be only necessary when html or css is changed in Vue components.
+    > These tests will allow us to verify that the different views and components are displayed and working correctly.
+    >
+    > Command for run unit tests: `yarn test:unit`
+    >
+    > if it is necessary to regenerate all the snapshots you can do with the following command `yarn test:unit -u`.
+    > It will be only necessary when html or css is changed in Vue components.
+
+2. E2E tests
+    > These tests will allow us to test the entire application from beginning to end to ensure the application flow behaves as expected and all integrated pieces work together as expected.
+    >
+    > Command for run e2e tests: `yarn test:e2e`
+    >
+    > It is possible run tests with user interface by running the following command `yarn test:e2e:ui`
 
 #### Lints and fixes files
 The following command (`yarn lint`) is for find and fix problems in TypeScript code.

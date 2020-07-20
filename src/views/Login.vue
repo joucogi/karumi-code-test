@@ -57,12 +57,9 @@ export default {
     setPassword: function(payload) {
       this.password = payload;
     },
-    loginUser: function() {
+    loginUser: async function() {
       this.showError = false;
-      if (
-              !this.validateEmail() ||
-              !this.validateLogin()
-      ) {
+      if (!this.validateEmail() || !(await this.validateLogin())) {
         this.showError = true;
         return;
       }
@@ -77,10 +74,11 @@ export default {
 
       return true;
     },
-    validateLogin: function() {
-      if (!this.login.validate(this.username, this.password)) {
+    validateLogin: async function() {
+      const valid = await this.login.validate(this.username, this.password);
+      if (!valid) {
         this.error = "The username or password you’ve entered is incorrect";
-        return false
+        return false;
       }
 
       return true;

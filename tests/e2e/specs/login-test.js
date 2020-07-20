@@ -12,7 +12,7 @@ describe("When user visits Login url", () => {
       .shouldNotBeVisible("span.error")
       .clickButton("btnLogin")
       .shouldBeOnUrl("/login")
-      .shouldBeVisibleAndContain("span.error", "The username is not an email")
+      .shouldBeVisibleAndContain("span.error", "The username is not an email");
   });
 
   it("Should be showing error message if user click the button and email is not valid", () => {
@@ -36,7 +36,10 @@ describe("When user visits Login url", () => {
       .type("lalalalala")
       .clickButton("btnLogin")
       .shouldBeOnUrl("/login")
-      .shouldBeVisibleAndContain("span.error", "The username or password you’ve entered is incorrect");
+      .shouldBeVisibleAndContain(
+        "span.error",
+        "The username or password you’ve entered is incorrect"
+      );
   });
 
   it("Should be redirected to home page if user click the button and credentials are valid", () => {
