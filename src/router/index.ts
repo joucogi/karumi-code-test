@@ -3,6 +3,9 @@ import VueRouter from "vue-router";
 import routes from "./routes";
 import Auth from "@/middlewares/auth";
 import store from "@/store";
+import FakeLoginApi from "@/adapters/fake-login-api";
+import Server from "../../backend/server";
+import LocalStorage from "@/adapters/local-storage";
 
 Vue.use(VueRouter);
 
@@ -12,6 +15,8 @@ const router = new VueRouter({
   routes
 });
 
-router.beforeEach(Auth(store));
+router.beforeEach(
+  Auth(store, new LocalStorage(), new FakeLoginApi(new Server()))
+);
 
 export default router;

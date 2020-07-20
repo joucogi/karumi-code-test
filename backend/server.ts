@@ -16,13 +16,30 @@ export default class Server {
         });
     }
 
-    private generateToken(user: User | undefined): string {
-        let token = "";
-        if (user !== undefined) {
-            const json: string = JSON.stringify(user);
-            token = btoa(json);
+    getUser(token: string): Promise<string> {
+        return new Promise<string>(res => {
+            setTimeout(() => {
+                const user: User | undefined = this.convertToUser(token);
+                res(JSON.stringify(user));
+            }, 2000);
+        });
+    }
+
+    private convertToUser(token: string): User | undefined{
+        if (token.length){
+            const user = atob(token);
+            return JSON.parse(user);
         }
 
-        return token;
+        return undefined;
+    }
+
+    private generateToken(user: User | undefined): string {
+        if (user !== undefined) {
+            const json: string = JSON.stringify(user);
+            return btoa(json);
+        }
+
+        return "";
     }
 }
