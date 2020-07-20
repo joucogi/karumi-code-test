@@ -1,20 +1,32 @@
 import LoginApi from "@/contracts/login-api";
+import ResponseApi from "@/models/response-api";
 import User from "@/models/user";
-import users from "../../data/users";
+import Server from "../../backend/server";
 
 export default class FakeLoginApi implements LoginApi {
-  getUser(username: string, password: string): Promise<User | undefined> {
-    return new Promise<User>(res => {
-      setTimeout(() => {
-        const user: User | undefined = this.findUser(username, password);
-        res(user);
-      }, 2000);
-    });
+  private server: Server;
+  constructor(server: Server) {
+    this.server = server;
   }
 
-  private findUser(username: string, password: string): User | undefined {
-    return users
-      .map(user => new User(user.id, user.name, user.username, user.password))
-      .find(user => user.username === username && user.password === password);
+  async getUser(username: string, password: string): Promise<ResponseApi> {
+    const json: string = await this.server.findUser(username, password);
+    const response = JSON.parse(json);
+    const userInfo = response._user;
+    const token = response._token;
+
+    if (token === "") {
+      return new ResponseApi(undefined, token);
+    }
+
+    return new ResponseApi(
+      new User(
+        userInfo._id,
+        userInfo._name,
+        userInfo._username,
+        userInfo._password
+      ),
+      token
+    );
   }
 }

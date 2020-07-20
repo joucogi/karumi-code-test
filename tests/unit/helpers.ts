@@ -4,6 +4,9 @@ import { Wrapper } from "@vue/test-utils";
 
 import State from "@/store/state";
 import User from "@/models/user";
+import ResponseApi from "@/models/response-api";
+import FakeLoginApi from "@/adapters/fake-login-api";
+import ServerMock from "./mocks/server-mock";
 
 export const toMatchSnapshot = (wrapper: Wrapper<Vue>) => {
   expect(wrapper.element).toMatchSnapshot();
@@ -41,4 +44,13 @@ export const createStoreWithUser = () => {
   const state = new State();
   state.user = new User(1, "Joel", "joel", "1234");
   return createStore(state);
+};
+
+export const getFakeApiLogin = (response: ResponseApi): FakeLoginApi => {
+  const implementation = {
+    findUser: jest.fn(() => JSON.stringify(response))
+  };
+  const server = new (ServerMock(implementation))();
+
+  return new FakeLoginApi(server);
 };
