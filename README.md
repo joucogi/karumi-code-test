@@ -1,12 +1,20 @@
-# Karumi Test Proposal
+<p align="center">
+<h1>Karumi Test Proposal</h1>
 Application which users will be able to log in and they will keep persisted until logout button was clicked.
+
+<br><br>
+
+<a href="https://www.typescriptlang.org/" target="_blank"><img src="https://img.shields.io/badge/VueJS-%5E2.6.11-brightgreen" alt="VueJS"/></a>
+<a href="https://vuejs.org/" target="_blank"><img src="https://img.shields.io/badge/TypeScript-%5E3.9.7-blue" alt="TypeScript"/></a>
+<a href="https://github.com/joucogi/karumi-code-test/actions"><img src="https://github.com/CodelyTV/php-ddd-example/workflows/CI/badge.svg" alt="CI pipeline status" /></a>
+</p>
 
 ## Screenshots
 ![Login View](/screenshots/LoginView.png?raw=true "Login View") ![Home View](/screenshots/HomeView.png?raw=true "Home View")
 
 ## How to use
 ### Needed tools
-1. [Install yarn](https://classic.yarnpkg.com/en/docs/install)
+1. <a href="https://classic.yarnpkg.com/en/docs/install" target="_blank">Install yarn</a>
 2. Clone this project: `git clone https://github.com/joucogi/karumi-code-test.git`
 3. Move to the project folder: `cd karumi-code-test`
 
@@ -18,7 +26,7 @@ There are two ways to run the application in your own computer or server:
     >
     > or
     >
-    > 1. Install [serve](https://www.npmjs.com/package/serve) (`yarn global add serve`)
+    > 1. Install <a href="https://www.npmjs.com/package/serve" target="_blank">serve</a> (`yarn global add serve`)
     > 2. Run serve as a SPA `serve -l 8080 -s ./dist`
 
 2. Run develop server
@@ -26,13 +34,13 @@ There are two ways to run the application in your own computer or server:
     > 2. Compiles and hot-reloads for development `yarn serve`
 
 At this point, you should be able to access to the next two views: 
-> - [HomeView](http://127.0.0.1:8080)
-> - [LoginView](http://127.0.0.1:8080/login)
+> - <a href="http://127.0.0.1:8080" target="_blank">HomeView</a>
+> - <a href="http://127.0.0.1:8080/login" target="_blank">LoginView</a>
 
 ### Application run in Netlify
-If you prefer you can visit the application deployed in **[Netlify](https://www.netlify.com)**
-> - [HomeView](https://joucogi-karumi-login-only-for-guests.netlify.app) 
-> - [LoginView](https://joucogi-karumi-login-only-for-guests.netlify.app/login)
+If you prefer you can visit the application deployed in **<a href="https://www.netlify.com" target="_blank">Netlify</a>**
+> - <a href="https://joucogi-karumi-login-only-for-guests.netlify.app" target="_blank">HomeView</a>
+> - <a href="https://joucogi-karumi-login-only-for-guests.netlify.app/login" target="_blank">HomeView</a>
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.
@@ -58,3 +66,14 @@ You can compile again with the following command `yarn build`.
 
 #### Lints and fixes files
 The following command (`yarn lint`) is for find and fix problems in TypeScript code.
+
+## Languages, libraries and frameworks used
+1. For application
+    > - <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> used in most of the project
+    > - <a href="https://vuejs.org/" target="_blank">VueJS</a> to make the user interfaces.
+    > - <a href="https://yarnpkg.com/" target="_blank">Yarn</a> as a package repository.
+
+2. For tests
+    > - <a href="https://jestjs.io/" target="_blank">Jest</a> and <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> for unit and integration tests.
+    > - <a href="https://www.cypress.io/" target="_blank">Cypress</a> and <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">Javascript</a> for e2e tests.
+    
