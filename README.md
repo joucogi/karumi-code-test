@@ -1,13 +1,23 @@
-<p align="center">
-<h1>Karumi Test Proposal</h1>
-Application which users will be able to log in and they will keep persisted until logout button was clicked.
-
-<br><br>
-
+# Karumi Test Proposal
 <a href="https://www.typescriptlang.org/" target="_blank"><img src="https://img.shields.io/badge/VueJS-%5E2.6.11-brightgreen" alt="VueJS"/></a>
 <a href="https://vuejs.org/" target="_blank"><img src="https://img.shields.io/badge/TypeScript-%5E3.9.7-blue" alt="TypeScript"/></a>
 <a href="https://github.com/joucogi/karumi-code-test/actions"><img src="https://github.com/CodelyTV/php-ddd-example/workflows/CI/badge.svg" alt="CI pipeline status" /></a>
-</p>
+
+Application which users will be able to log in and they will keep persisted until logout button was clicked.
+
+## Contents
+
+* [Screenshots](#screenshots)
+* [How to use](#how-to-use)
+    * [Needed tools](#needed-tools)
+    * [Application run](#application-run)
+    * [Application run in Netlify](#application-run-in-netlify)
+    * [Deploy to production](#deploy-to-production)
+* [Testing](#testing)
+    * [Testing the application](#testing-the-application)
+    * [Lint and fixes files](#lints-and-fixes-files)
+* [Languages, libraries and frameworks](#languages-libraries-and-frameworks-used)
+* [Folders structure](#folders-structure)
 
 ## Screenshots
 ![Login View](/screenshots/LoginView.png?raw=true "Login View") ![Home View](/screenshots/HomeView.png?raw=true "Home View")
@@ -76,4 +86,33 @@ The following command (`yarn lint`) is for find and fix problems in TypeScript c
 2. For tests
     > - <a href="https://jestjs.io/" target="_blank">Jest</a> and <a href="https://www.typescriptlang.org/" target="_blank">TypeScript</a> for unit and integration tests.
     > - <a href="https://www.cypress.io/" target="_blank">Cypress</a> and <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank">Javascript</a> for e2e tests.
-    
+   
+## Folders structure
+
+Folders more relevance:
+
+- `src`: Folder where all the application code is located.
+- `test`: Folder where all the tests are located.
+- `dist`: Folder where builded application is located.
+
+```
+.
+├── backend  
+├── dist
+├── public
+├── screenshots
+├── src
+│   ├── adapters
+│   ├── assets
+│   ├── components
+│   ├── contracts
+│   ├── middlewares
+│   ├── models
+│   ├── router
+│   ├── services
+│   ├── store
+│   └── views
+└── tests
+    ├── e2e
+    └── unit
+```
