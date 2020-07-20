@@ -9,6 +9,9 @@ import router from "./router";
 import store from "./store";
 
 import FakeLoginApi from "@/adapters/fake-login-api";
+import Server from "../backend/server";
+
+import LocalStorage from "@/adapters/local-storage";
 
 import LoginUser from "@/services/login-user";
 import Validator from "@/services/validator";
@@ -22,7 +25,11 @@ new Vue({
   router,
   store,
   provide: {
-    login: new LoginUser(store, new FakeLoginApi()),
+    login: new LoginUser(
+      store,
+      new FakeLoginApi(new Server()),
+      new LocalStorage()
+    ),
     validator: new Validator()
   },
   render: h => h(App)

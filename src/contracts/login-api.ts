@@ -1,5 +1,5 @@
-import User from "@/models/user";
+import ResponseApi from "@/models/response-api";
 
 export default interface LoginApi {
-  getUser(username: string, password: string): Promise<User | undefined>;
+  getUser(username: string, password: string): Promise<ResponseApi>;
 }
