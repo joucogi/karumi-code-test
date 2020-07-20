@@ -19,13 +19,12 @@ const restoreToken = async (
   }
 };
 
-const Auth: Function = (
-  store: Store<State>,
-  storage: Storage,
-  api: LoginApi
-) => async (to: Route, from: Route, next: Function) => {
-  await restoreToken(store, storage, api);
-
+const requiresAuth = (
+  to: Route,
+  from: Route,
+  next: Function,
+  store: Store<State>
+) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.getters.userIsLogged) {
       next({
@@ -33,6 +32,33 @@ const Auth: Function = (
       });
     }
   }
+};
+
+const requiresGuest = (
+  to: Route,
+  from: Route,
+  next: Function,
+  store: Store<State>
+) => {
+  if (to.matched.some(record => record.meta.requiresGuest)) {
+    if (store.getters.userIsLogged) {
+      next({
+        path: "/"
+      });
+    }
+  }
+};
+
+const validations = [requiresAuth, requiresGuest];
+
+const Auth: Function = (
+  store: Store<State>,
+  storage: Storage,
+  api: LoginApi
+) => async (to: Route, from: Route, next: Function) => {
+  await restoreToken(store, storage, api);
+
+  validations.forEach(func => func(to, from, next, store));
 
   next();
 };

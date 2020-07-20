@@ -1,4 +1,25 @@
-describe("When user visits Login url", () => {
+describe("When logged user visits Login url", () => {
+  beforeEach(() => {
+    const token =
+      "eyJfaWQiOjEsIl9uYW1lIjoiSm9lbCIsIl91c2VybmFtZSI6ImpvZWwuY29sbEBnbWFpbC5jb20iLCJfcGFzc3dvcmQiOiIxMjM0NTYifQ==";
+    cy.clearLocalStorage().should(ls => {
+      ls.setItem("token", token);
+      expect(ls.getItem("token")).not.to.be.null;
+    });
+  });
+
+  it("Should be redirect to home url", () => {
+    cy.visitLogin().shouldBeOnUrl("/login");
+  });
+});
+
+describe("When logged user visits Login url", () => {
+  beforeEach(() => {
+    cy.clearLocalStorage().should(ls => {
+      expect(ls.getItem("token")).to.be.null;
+    });
+  });
+
   it("should be contain some components", () => {
     cy.visitLogin()
       .get("input#username")

@@ -29,7 +29,7 @@ export default {
   computed: {
     ...mapState(["user"]),
     name: function() {
-      return this.user.name;
+      return this.user !== undefined ? this.user.name : "";
     }
   },
   methods: {
