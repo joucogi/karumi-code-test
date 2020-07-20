@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState } from "vuex";
 import LogoComponent from "@/components/LogoComponent";
 import ButtonComponent from "@/components/ButtonComponent";
-import { LOGOUT } from "@/store/mutations";
 
 export default {
   name: "Home",
+  inject: ["login"],
   components: {
     LogoComponent,
     ButtonComponent
@@ -33,11 +33,8 @@ export default {
     }
   },
   methods: {
-    ...mapMutations({
-      logout: LOGOUT
-    }),
     logoutAndGoToLogin: function() {
-      this.logout();
+      this.login.logout();
       this.$router.push({ name: "Login" });
     }
   }

@@ -7,6 +7,10 @@ import User from "@/models/user";
 import ResponseApi from "@/models/response-api";
 import FakeLoginApi from "@/adapters/fake-login-api";
 import ServerMock from "./mocks/server-mock";
+import LoginApiMock from "./mocks/login-api-mock";
+import LoginUser from "@/services/login-user";
+import store from "@/store";
+import MemoryStorage from "@/adapters/memory-storage";
 
 export const toMatchSnapshot = (wrapper: Wrapper<Vue>) => {
   expect(wrapper.element).toMatchSnapshot();
@@ -53,4 +57,16 @@ export const getFakeApiLogin = (response: ResponseApi): FakeLoginApi => {
   const server = new (ServerMock(implementation))();
 
   return new FakeLoginApi(server);
+};
+
+export const getLoginUser = (
+  user: User | undefined,
+  token: string,
+  memoryStorage: MemoryStorage
+): LoginUser => {
+  const implementation = {
+    getUser: jest.fn(() => new ResponseApi(user, token))
+  };
+  const api = new (LoginApiMock(implementation))();
+  return new LoginUser(store, api, memoryStorage);
 };

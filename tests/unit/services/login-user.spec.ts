@@ -1,36 +1,44 @@
-import LoginUser from "@/services/login-user";
 import store from "@/store";
 import User from "@/models/user";
-import ResponseApi from "@/models/response-api";
-import LoginApiMock from "../mocks/login-api-mock";
 import MemoryStorage from "@/adapters/memory-storage";
+import { getLoginUser } from "../helpers";
 
 describe("For LoginUser Service", () => {
-  it("validation is wrong when a bad user/password is passed", async () => {
-    const implementation = {
-      getUser: jest.fn(() => new ResponseApi(undefined, ""))
-    };
-    const api = new (LoginApiMock(implementation))();
+  it("When wrong credentials are passed validation is wrong and token and user in store don't exist", async () => {
     const memoryStorage = new MemoryStorage();
-    const login: LoginUser = new LoginUser(store, api, memoryStorage);
+    const login = getLoginUser(undefined, "", memoryStorage);
 
     expect(await login.validate("lololololo", "lalalalalalal")).toBeFalsy();
     expect(store.state.user).toBe(undefined);
+    expect(memoryStorage.getItem("token")).toBe(null);
   });
 
-  it("validation is ok when a valid user/password is passed", async () => {
+  it("When valid credentials are passed validation is ok and token and user in store exists", async () => {
     const user = new User(1, "Joel", "joel.coll@gmail.com", "123456");
     const json = JSON.stringify(user);
     const token = btoa(json);
-
-    const implementation = {
-      getUser: jest.fn(() => new ResponseApi(user, token))
-    };
-    const api = new (LoginApiMock(implementation))();
     const memoryStorage = new MemoryStorage();
-    const login: LoginUser = new LoginUser(store, api, memoryStorage);
+
+    const login = getLoginUser(user, token, memoryStorage);
 
     expect(await login.validate(user.username, user.password)).toBeTruthy();
     expect(store.state.user).toEqual(user);
+    expect(memoryStorage.getItem("token")).toBe(token);
+  });
+
+  it("When token exists in storage and logout is called token is removed", async () => {
+    const user = new User(1, "Joel", "joel.coll@gmail.com", "123456");
+    const json = JSON.stringify(user);
+    const token = btoa(json);
+    const memoryStorage = new MemoryStorage();
+    const login = getLoginUser(user, token, memoryStorage);
+
+    await login.validate(user.username, user.password);
+
+    expect(memoryStorage.getItem("token")).toBe(token);
+    expect(store.state.user).toEqual(user);
+    login.logout();
+    expect(memoryStorage.getItem("token")).toBe(null);
+    expect(store.state.user).toEqual(undefined);
   });
 });

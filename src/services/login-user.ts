@@ -1,6 +1,6 @@
 import { Store } from "vuex";
 
-import { LOGIN } from "@/store/mutations";
+import { LOGIN, LOGOUT } from "@/store/mutations";
 import State from "@/store/state";
 import LoginApi from "@/contracts/login-api";
 import ResponseApi from "@/models/response-api";
@@ -28,5 +28,10 @@ export default class LoginUser {
     this.$storage.setItem("token", response.token);
 
     return true;
+  }
+
+  logout() {
+    this.$store.commit(LOGOUT);
+    this.$storage.removeItem("token");
   }
 }
