@@ -10,15 +10,20 @@ import {
   componentExists,
   createStoreWithUser
 } from "../helpers";
+import LoginUserMock from "../mocks/login-user-mock";
 
 Vue.use(Vuex);
 
 let wrapper: Wrapper<Vue>;
+const login = new LoginUserMock();
 
 beforeEach(() => {
   const store = createStoreWithUser();
   wrapper = shallowMount(Home, {
-    store
+    store,
+    provide: {
+      login
+    }
   });
 });
 

@@ -21,15 +21,13 @@ Vue.config.productionTip = false;
 // Install BootstrapVue
 Vue.use(BootstrapVue);
 
+const storage = new LocalStorage();
+
 new Vue({
   router,
   store,
   provide: {
-    login: new LoginUser(
-      store,
-      new FakeLoginApi(new Server()),
-      new LocalStorage()
-    ),
+    login: new LoginUser(store, new FakeLoginApi(new Server()), storage),
     validator: new Validator()
   },
   render: h => h(App)

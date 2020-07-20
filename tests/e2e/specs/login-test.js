@@ -42,7 +42,11 @@ describe("When user visits Login url", () => {
       );
   });
 
-  it("Should be redirected to home page if user click the button and credentials are valid", () => {
+  it("Should be redirected to home page if user click the button and credentials are valid and token should exist", () => {
+    cy.clearLocalStorage().should(ls => {
+      expect(ls.getItem("token")).to.be.null;
+    });
+
     cy.visitLogin()
       .shouldNotBeVisible("span.error")
       .get("input#username")
@@ -52,6 +56,10 @@ describe("When user visits Login url", () => {
       .clickButton("btnLogin")
       .shouldBeOnUrl("/")
       .get("h2")
-      .contains("Welcome to your homepage Joel");
+      .contains("Welcome to your homepage Joel")
+      .should(() => {
+        console.log("TOKEN", localStorage.getItem("token"));
+        expect(localStorage.getItem("token")).not.to.be.null;
+      });
   });
 });
