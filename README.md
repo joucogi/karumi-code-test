@@ -50,7 +50,7 @@ At this point, you should be able to access to the next two views:
 ### Application run in Netlify
 If you prefer you can visit the application deployed in **<a href="https://www.netlify.com" target="_blank">Netlify</a>**
 > - <a href="https://joucogi-karumi-login-only-for-guests.netlify.app" target="_blank">HomeView</a>
-> - <a href="https://joucogi-karumi-login-only-for-guests.netlify.app/login" target="_blank">HomeView</a>
+> - <a href="https://joucogi-karumi-login-only-for-guests.netlify.app/login" target="_blank">LoginView</a>
 
 ### Deploy to production
 The application is all compiled and ready to be deployed into `dist` folder.
